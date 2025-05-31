@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.custom-card {
+    position: relative;
+    height: 300px;
+    border-radius: 20px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Aligne les éléments en bas */
+    align-items: flex-start; /* Aligne les éléments à gauche */
+    padding: 1.5rem;
+    color: white;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+  }
+
+.custom-card:hover {
+  transform: scale(1.03);
+}
+
+.custom-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+    z-index: 1;
+  }
+
+.custom-text {
+    position: relative;
+    z-index: 2;
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-align: left;
+    width: 100%;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+    margin-bottom: 1rem; /* Ajoute un espace entre le texte et le bouton */
+  }
+
+.custom-button {
+  position: relative;
+  z-index: 2;
+  display: none;
+}
+
+.custom-card:hover .custom-button {
+    display: inline-block;
+    margin-top: 0; /* Retire tout espacement supplémentaire */
+  }
+
+.bg-glaucome {
+  background-image: url('../images/glaucome.jpeg');
+}
+
+.bg-poumons {
+  background-image: url('../images/covid.jpeg');
+}
