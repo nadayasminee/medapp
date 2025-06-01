@@ -9,7 +9,7 @@ import gdown
 
 app = Flask(__name__)
 
-# Configuration des labels (inchangé)
+
 glaucome_labels = {
     1: "Glaucome",
     0: "Sain"
@@ -79,7 +79,7 @@ def get_model(model_type, model_name):
     
     return load_model(model_path)
 
-# Modification de la route predict_glaucome
+
 @app.route('/predict_glaucome', methods=['POST'])
 def predict_glaucome():
     if 'file' not in request.files:
@@ -98,7 +98,7 @@ def predict_glaucome():
 
     try:
         model_name = request.form['model']
-        model = get_model('glaucome', model_name)  # Chargement via la nouvelle fonction
+        model = get_model('glaucome', model_name)  
 
         img = Image.open(file_path).convert('RGB')
         img = img.resize((224, 224))
@@ -137,7 +137,7 @@ def predict_glaucome():
             except Exception as e:
                 app.logger.error(f"Erreur suppression fichier: {str(e)}")
 
-# Modification similaire pour predict_poumons
+
 @app.route('/predict_poumons', methods=['POST'])
 def predict_poumons():
     if 'file' not in request.files:
@@ -156,7 +156,7 @@ def predict_poumons():
 
     try:
         model_name = request.form['model']
-        model = get_model('covid', model_name)  # Chargement via la nouvelle fonction
+        model = get_model('covid', model_name)  
 
         img = Image.open(file_path)
         img = img.resize((224, 224))
@@ -184,7 +184,7 @@ def predict_poumons():
             except Exception as e:
                 app.logger.error(f"Erreur suppression fichier: {str(e)}")
 
-# Routes restantes inchangées
+
 @app.route('/')
 def home():
     return render_template('index.html')
